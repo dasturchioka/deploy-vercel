@@ -1,8 +1,10 @@
-import express from "express"
+import express from 'express'
 const app = express()
 
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
-	res.json({ msg: 'Hello World', changed: true })
+	res.sendFile('index.html', { root: 'public' })
 })
 
 app.listen(3000, () => {
